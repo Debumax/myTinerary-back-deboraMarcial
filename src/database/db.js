@@ -3,7 +3,7 @@ import  dotenv from 'dotenv';
 dotenv.config();
 
 
-mongoose.connect("mongodb+srv://DebumaxMDB:debumaxmdb@cluster0.dqyhyno.mongodb.net/myTinerary")
+mongoose.connect(process.env['BD_URL'])
 .then( ()=>{
     console.log("bd conectada");
 })
