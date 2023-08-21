@@ -4,7 +4,7 @@ const ruta = express.Router();
 
 import citiesController from '../controllers/cities.js'
 
-const { createCitie,getAllCities,getCitieById,updateCitie,deleteCitie } = citiesController
+const { createCitie , getAllCities , getCitieById , updateCitie , deleteCitie } = citiesController
 
 ruta.route('/')
     .post(createCitie)
