@@ -57,23 +57,47 @@ const citiesController = {
     },
     
         
-        // updateCitie: (req,res,next)=>{
-        //     try {
+         updateCitie: async (req,res,next)=>{
+            try {
                 
-        //     } catch (error) {
-                
-        //     }
+                const citie = await Citie.findByIdAndUpdate(req.params.id,req.body)
+                if (!citie) {
+                    return res.status(400).json({status : 400})
+                }
+                res.status(200).json({
+                    status:200,
+                    data:citie
+                });
+
+            } catch (error) {
+                res.status(400).json({
+                    status:400,
+                    mensaje: error
+                })
+            }
     
-        // },
+        },
     
-        // deleteCitie: (req,res,next)=>{
-        //     try {
+        deleteCitie: async (req,res,next)=>{
+            try {
                 
-        //     } catch (error) {
-                
-        //     }
+                const citie = await Citie.findByIdAndDelete( req.params.id )
+
+                if (!citie) {
+                    return res.status(400).json({status : 400})
+                }
+                res.status(200).json({
+                    status:200
+                });
+
+            } catch (error) {
+                res.status(400).json({
+                    status:400,
+                    mensaje: error
+                })
+            }
     
-        // }
+        }
     
     
     

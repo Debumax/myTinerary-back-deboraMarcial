@@ -1,10 +1,10 @@
-import { Router } from 'express';
 import express from 'express'
+
 const ruta = express.Router();
 
 import citiesController from '../controllers/cities.js'
 
-const { createCitie,getAllCities,getCitieById } = citiesController
+const { createCitie,getAllCities,getCitieById,updateCitie,deleteCitie } = citiesController
 
 ruta.route('/')
     .post(createCitie)
@@ -13,8 +13,8 @@ ruta.route('/')
 
 ruta.route('/:id')
      .get(getCitieById)
-//     .patch(updateCitie)
-//     .delete(deleteCitie)
+     .patch(updateCitie)
+     .delete(deleteCitie)
 
 
 
