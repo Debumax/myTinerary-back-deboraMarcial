@@ -39,14 +39,22 @@ const citiesController = {
     
     },
 
-        // getCitieById: (req,res,next)=>{
-        //     try {
-                
-        //     } catch (error) {
-                
-        //     }
-    
-        // },
+    getCitieById: async (req,res,next)=>{
+        const { id }=req.params
+        try {
+            const citie= await Citie.findById(id)
+            res.status(200).json({
+                status:200,
+                data:citie
+            });
+        
+        } catch (error) {
+            res.status(400).json({
+                status:400,
+                mensaje: error
+            })
+        }
+    },
     
         
         // updateCitie: (req,res,next)=>{
