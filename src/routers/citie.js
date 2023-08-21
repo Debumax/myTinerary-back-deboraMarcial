@@ -4,11 +4,11 @@ const ruta = express.Router();
 
 import citiesController from '../controllers/cities.js'
 
-const { createCitie } = citiesController
+const { createCitie,getAllCities } = citiesController
 
 ruta.route('/')
     .post(createCitie)
-    //.get(getAllCities)
+    .get(getAllCities)
 
 
 // ruta.route('/:id')

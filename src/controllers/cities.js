@@ -19,17 +19,26 @@ const citiesController = {
             
         }
     
-    }
+    },
     
     
-        // getAllCities: (req,res,next)=>{
-        //     try {
-                
-        //     } catch (error) {
-                
-        //     }
+    getAllCities: async (req,res,next)=>{
+        try {
+            const allcities= await Citie.find()
+            res.status(200).json({
+                status:200,
+                data:allcities
+            });
+        
+        } catch (error) {
+            res.status(400).json({
+                status:400,
+                mensaje: error
+            })
+        }
     
-        // },
+    },
+
         // getCitieById: (req,res,next)=>{
         //     try {
                 
